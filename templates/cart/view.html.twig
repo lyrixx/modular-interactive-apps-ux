@@ -26,11 +26,19 @@
                             </a>
                         </div>
 
+                        {% set discountStartAtQuantity = 5 %}
                         <div class="col-md">
-                            <form method="get" action="{{ path('my_cart_set_quantity', {'id': book.id}) }}" class="form-inline">
+                            <form method="get" action="{{ path('my_cart_set_quantity', {'id': book.id}) }}" class="form-inline"
+                                {{ stimulus_controller('cart', { discountStartAtQuantity}) }}
+                            >
                                 <div class="d-flex">
                                     <div>
-                                        <select class="form-control" name="quantity">
+                                        <select
+                                            class="form-control"
+                                            name="quantity"
+                                            data-cart-target="quantity"
+                                            data-action="change->cart#updateQuantity"
+                                        >
                                             {% for i in 1..10 %}
                                                 <option value="{{ i }}" {{ i == quantity ? 'selected' }}>{{ i }}</option>
                                             {% endfor %}
@@ -40,6 +48,16 @@
                                     <div>
                                         <button type="submit" class="btn btn-secondary ms-1">
                                             Update quantity
+                                        </button>
+                                    </div>
+                                    <div>
+                                        There is a discount if you buy more than {{ discountStartAtQuantity }} books!
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary ms-1"
+                                            data-action="click->cart#iWantTheDiscount"
+                                        >
+                                            I want the discount!
                                         </button>
                                     </div>
                                 </div>
