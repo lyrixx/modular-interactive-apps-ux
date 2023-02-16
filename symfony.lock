@@ -239,6 +239,9 @@
     "symfony/ux-lazy-image": {
         "version": "v2.7.1"
     },
+    "symfony/ux-turbo": {
+        "version": "v2.7.1"
+    },
     "symfony/var-dumper": {
         "version": "v5.2.6"
     },

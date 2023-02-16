@@ -16,36 +16,38 @@
         {% endblock %}
     </head>
     <body>
-        <header class="mb-5">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ path('homepage') }}">Ecommerce</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('homepage') }}">
-                                    All books
-                                </a>
-                            </li>
-                        </ul>
+        <turbo-frame id="body">
+            <header class="mb-5">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="{{ path('homepage') }}">Ecommerce</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('homepage') }}">
+                                        All books
+                                    </a>
+                                </li>
+                            </ul>
 
-                        <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('my_cart') }}">
-                                    My cart ({{ count_cart_items() }})
-                                </a>
-                            </li>
-                        </ul>
+                            <ul class="navbar-nav mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('my_cart') }}">
+                                        My cart ({{ count_cart_items() }})
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </header>
+                </nav>
+            </header>
 
-        <div class="container">
-            {% block page '' %}
-        </div>
+            <div class="container">
+                {% block page '' %}
+            </div>
+        </turbo-frame>
     </body>
 </html>
