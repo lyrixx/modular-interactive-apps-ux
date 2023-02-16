@@ -6,7 +6,7 @@
     <div class="row">
         {% for book in books %}
             <div class="col-lg-2 mb-3 position-relative">
-                <img src="{{ asset(book.image) }}" class="img-fluid" />
+                {{ async_image(book.image) }}
 
                 <a href="{{ path('book_view', {'id': book.id}) }}" class="stretched-link">
                     <strong>

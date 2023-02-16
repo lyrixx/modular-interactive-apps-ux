@@ -5,15 +5,7 @@
 {% block page %}
     <div class="row">
         <div class="col-lg-4 text-center">
-            {% cache "book-image-#{book.image}"  %}
-                <img
-                    src="{{ data_uri_thumbnail(book.image, 240, 380) }}"
-                    class="img-fluid"
-                        {{ stimulus_controller('symfony/ux-lazy-image/lazy-image', {
-                            src: asset(book.image)
-                    }) }}
-                />
-            {% endcache %}
+            {{ async_image(book.image) }}
         </div>
 
         <div class="col-lg-8">
