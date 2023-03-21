@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block page %}
+    <div {{ turbo_stream_listen('/contacts') }}>
+        <div id="contact-box" ></div>
+    </div>
+{% endblock %}

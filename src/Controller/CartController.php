@@ -12,8 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(path: '/cart')]
 class CartController extends AbstractController
 {
-    public function __construct(private readonly BookRepository $bookRepository, private readonly CartRepository $repository)
-    {
+    public function __construct(
+        private readonly BookRepository $bookRepository,
+        private readonly CartRepository $repository,
+    ) {
     }
 
     #[Route(path: '', name: 'my_cart')]
@@ -21,6 +23,7 @@ class CartController extends AbstractController
     {
         return $this->render('cart/view.html.twig', [
             'cart' => $this->repository->getCart(),
+            'premiumQuantity' => 3,
         ]);
     }
 
